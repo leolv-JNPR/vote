@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	default-lazy-init="false">
+	<!-- cache manager begin -->
+	<bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation">
+			<value>/WEB-INF/ehcache.xml</value>
+		</property>
+	</bean>
+	<!-- cache manager end -->
+
+	<bean id="blackListCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager">
+			<ref local="cacheManager" />
+		</property>
+		<property name="cacheName">
+			<value>cn.net.etest.BLACKLIST_CACHE</value>
+		</property>
+	</bean>
+	
+	<bean id="userInfoCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager">
+			<ref local="cacheManager" />
+		</property>
+		<property name="cacheName">
+			<value>cn.net.etest.USERINFO_CACHE</value>
+		</property>
+	</bean>
+	
+	<bean id="downloadFilter" class="cn.net.etest.testcentermanager.utilities.DownloadFilter">
+		<property name="userInfoCache">
+			<ref local="userInfoCache"/>
+		</property>
+	</bean>
+	
+</beans>

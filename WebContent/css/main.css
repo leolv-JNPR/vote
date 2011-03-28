@@ -1,0 +1,402 @@
+﻿@charset "utf-8";
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	padding: 0;
+	margin: 0px;
+	min-height: 100%;
+	font-family: "Arial", "宋体", "Segoe UI", "verdana";
+	font-size: 14px;
+	-moz-user-select: none;
+	-moz-user-select: none;
+}
+
+a {
+	text-decoration: none;
+	color: #3d436f;
+}
+a:visited {
+	text-decoration: none;
+	color: #3d436f;
+}
+a:hover {
+	text-decoration: underline;
+	background-color: #0099cc;
+	color: #fff;
+}
+
+
+.ui-dialog-titlebar-close{
+	display: none;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 780px;
+}
+
+#content-wrapper {
+	min-height: 250px;
+}
+
+.print {
+	border: 1px solid #EEE;
+	width: 100%;
+	margin: 10px auto;
+}
+
+.print-content {
+	padding-top: 10px;
+	padding-left: 70px;
+}
+
+.print-header {
+	
+}
+
+.datalist {
+	border: 1px solid #033;
+	border-collapse: collapse;
+	background-color: #dedefa;
+	font-size: 13px;
+	margin: 0 auto;
+}
+
+.datalist th {
+	border: 1px solid #666666;
+	background-color: #333333;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 12px;
+	padding-right: 12px;
+	text-align: center;
+}
+
+.datalist td {
+	border: 1px solid #666666;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.datalist .trmove {
+	background-color: #A6C4E1;
+	cursor: hand;
+}
+
+.datalist tr.altrow {
+	background-color: #f4f9ff;
+}
+
+.datalist td.textb {
+	background-color: #FFCC66;
+}
+
+#footer {
+	position: relative;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+	height: 45px;
+	padding-top: 5px;
+}
+
+#footer .inner {
+	z-index: 2;
+	position: relative;
+}
+
+#ie6 #footer .inner {
+	zoom: 1;
+}
+
+#footer .bg {
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	/*background: #74a474;*/
+	height: 60px;
+	top: 0px;
+	left: 0px;
+}
+
+#ie6 #footer .bg {
+	zoom: 1;
+	/*background: #5fc5d2;*/
+	height: 65px;
+}
+
+#footer p {
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	font: 10px "arial", "helvetica", sans-serif;
+	color: #999;
+}
+
+#footer p a {
+	color: #000;
+}
+
+#footer span.first {
+	padding-bottom: 0px;
+	padding-left: 16px;
+	padding-right: 12px;
+	display: block;
+	float: right;
+	padding-top: 6px;
+}
+
+#footer span.secondary {
+	margin: 0;
+	padding-top: 0px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	padding-right: 0px;
+	display: block;
+	float: right;
+	clear: left;
+}
+
+#footer span.secondary img {
+	height: 50px;
+	border: 0;
+}
+
+#footer span.secondary a {
+	text-decoration: none;
+}
+
+.clearfix:after {
+	display: block;
+	height: 0px;
+	visibility: hidden;
+	clear: both;
+	content: ".";
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+
+.clearfix {
+	display: block;
+}
+
+.subTitle{
+	padding: 0 5px;
+}
+
+.my-dialog {
+	position: relative;
+	float: right;
+	margin: 10px;
+}
+
+.my-dialog .my-ui-dialog {
+	position: relative;
+	width: 780px;
+	padding: .2em;
+	overflow: hidden;
+}
+
+.my-dialog .ui-dialog-titlebar {
+	padding: .5em 1em .3em;
+	position: relative;
+}
+
+.my-dialog .ui-dialog-title {
+	float: left;
+	margin: .1em 16px .2em 0;
+}
+
+.my-dialog .ui-dialog-titlebar-close {
+	position: absolute;
+	right: .3em;
+	top: 50%;
+	width: 19px;
+	margin: -10px 0 0 0;
+	padding: 1px;
+	height: 18px;
+}
+
+.my-dialog .ui-dialog-titlebar-close span {
+	display: block;
+	margin: 1px;
+}
+
+.my-dialog .ui-dialog-titlebar-close:hover,.ui-dialog .ui-dialog-titlebar-close:focus
+{
+	padding: 0;
+}
+
+.my-dialog .ui-dialog-content {
+	border: 0;
+	padding: .5em 1em;
+	background: none;
+	overflow: auto;
+	zoom: 1;
+}
+
+.my-dialog .ui-dialog-buttonpane {
+	text-align: left;
+	border-width: 1px 0 0 0;
+	background-image: none;
+	margin: .5em 0 0 0;
+	padding: .3em 1em .5em .4em;
+}
+
+.my-dialog .ui-dialog-buttonpane button {
+	float: right;
+	margin: .5em .4em .5em 0;
+	cursor: pointer;
+	padding: .2em .6em .3em .6em;
+	line-height: 1.4em;
+	width: auto;
+	overflow: visible;
+}
+
+.my-dialog .ui-resizable-se {
+	width: 14px;
+	height: 14px;
+	right: 3px;
+	bottom: 3px;
+}
+.ui-draggable .ui-dialog-titlebar {
+	cursor: move;
+}
+.blank{
+	margin: 0 auto;
+	font-size: 15px;
+	font-weight: bold;	
+}
+.topics{
+	margin: 5px 0;
+}
+.topicQues{
+	font-size:15px;
+	padding: 15px 2px;
+}
+.topicAnwser_radio{
+	font-size: 16px;
+	font-weight: bold;
+}
+.answerRadio{
+	margin-left: 120px;
+}
+#submit_div{
+	margin: 20px;
+}
+.buttons{
+	float: right;
+ 	margin-right:  90px;
+ 	width: 160px;
+}
+.con_div{
+	padding: 8px;
+	border-bottom: 2px dashed #DDD;
+	position: relative;
+}
+.bgRed{
+	background: #9CC9F5;	
+}
+.con_title{
+	padding: 5px 0 10px 10px;
+	font-weight: bold;
+	float: left;
+}
+.con_date{
+	float: right;
+	font-size: 12px;
+	color: #555;
+	margin-top: 11px;
+	padding-left: 20px;	
+}
+.con_operate{
+	float: right;	
+}
+.con_viewVote, .con_delete, .con_run, .con_stop{
+	float:left;
+	padding-left: 10px;
+}
+.clear{
+	clear: both;
+}
+.longInput{
+	width: 380px;
+	height: 30px;
+	font-family: "宋体";
+}
+.icoImg{
+	background:url("../images/ico.gif") no-repeat;
+	display: block;
+    font-size: 0;
+    height: 24px;
+    margin: 6px 0 0 2px;
+    float: left;
+}
+.icoDel{
+	background-position: -1654px -39px;
+	width: 18px;
+}
+.icoView{
+	background-position: -1579px -39px;
+	width: 22px;
+}
+.icoRun{
+	background-position: -1729px -39px;
+	width: 22px;
+}
+.icoStop{
+	background-position: -1618px -39px;
+	width: 18px;
+}
+.icoRunning{
+	background-position: -1228px -35px;
+	width: 22px;
+}
+.icoAgree{
+	background-position: -2167px 0px;
+	width: 32px;
+}
+.icoReject{
+	background-position: -2238px 0px;
+	width: 32px;
+	height: 28px;
+}
+.icoAbstain{
+	background-position: -2205px 0px;
+	width: 32px;
+}
+.bTxt {
+    color: #333333;
+    float: left;
+    font-size: 12px;
+    margin: 9px 0 0 5px;
+    cursor: pointer !important;
+}
+.votesResult{
+	position: relative;
+	height: 44px;
+	margin-left: 80px;
+}
+.con_agree, .con_reject, .con_abstain{
+	float: left;
+}
+.votesCount{
+	color: #333333;
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 9px 25px 0 2px;
+}
