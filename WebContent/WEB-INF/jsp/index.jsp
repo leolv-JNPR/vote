@@ -32,7 +32,9 @@ $(function() {
 	</tr>
 	</table>
 --><div id="login-wrapper" class="my-dialog">
+
 <div class="my-ui-dialog ui-widget ui-widget-content ui-corner-all">
+<c:if test="${not empty topicList }">
 <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
 <span id="ui-dialog-title-dialog" class="ui-dialog-title">${conference.title }</span></div>
 <div style="min-height: 109px; width: auto;"
@@ -69,7 +71,17 @@ $(function() {
 </form>
 </div>
 </div>
+</c:if>
+<c:if test="${empty topicList }">
+<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+<span id="ui-dialog-title-dialog" class="ui-dialog-title">&nbsp;</span></div>
+<div class="topicQues" style="font-size:1.2em; font-weight:bold; margin-left:20px;">投票还未开始，请等待管理员开启投票。</div>
+<div class="buttons">
+	<input type="button" value="开始投票" style="width:120px;" onclick="window.location.href=''"/>
+</div><br/><br/><br/>
+</c:if>
 </div>
+
 </div>
 </div>
 </div>

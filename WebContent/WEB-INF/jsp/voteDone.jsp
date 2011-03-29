@@ -43,6 +43,20 @@ $(function() {
 	});
 });
 </c:if>
+<c:if test="${result==-1}">
+$(function() {
+	$( "#dialog-message-not-start" ).dialog({
+		modal: true,
+		resizable: false, 
+		buttons: {
+			Ok: function() {
+				window.location.href='';
+			}
+		},
+		close: function(event, ui) { window.location.href=''; }
+	});
+});
+</c:if>
 </script>
 
 </head>
@@ -50,15 +64,20 @@ $(function() {
 <div id="dialog-message-success" title="投票成功" style="display:none;">
 	<p>
 		<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
-		投票成功，感谢您的投票！谢谢！
+		投票成功，感谢您的投票。谢谢！
 	</p>
 </div>
 <div id="dialog-message-fail" title="投票错误" style="display:none;">
 	<p>
 		<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
-		您已经投过票，请不要重复投票！
+		您已经投过票，请不要重复投票。
 	</p>
 </div>
-
+<div id="dialog-message-not-start" title="投票错误" style="display:none;">
+	<p>
+		<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+		投票已经结束或者尚未开始。
+	</p>
+</div>
 </body>
 </html>

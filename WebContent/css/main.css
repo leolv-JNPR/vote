@@ -308,7 +308,7 @@ a:hover {
 	position: relative;
 }
 .bgRed{
-	background: #9CC9F5;	
+	/*background: #9CC9F5;	*/
 }
 .con_title{
 	padding: 5px 0 10px 10px;
@@ -390,6 +390,18 @@ a:hover {
 	height: 44px;
 	margin-left: 80px;
 }
+
+.votesResult div{
+	width: 200px;
+}
+
+.percent{
+	font-size: 0.9em;
+	font-weight: normal;
+	margin: 9px 25px 0 2px;
+	float: left;
+}
+
 .con_agree, .con_reject, .con_abstain{
 	float: left;
 }
@@ -398,5 +410,5 @@ a:hover {
     float: left;
     font-size: 15px;
     font-weight: bold;
-    margin: 9px 25px 0 2px;
+    margin: 9px 10px 0 2px;
 }

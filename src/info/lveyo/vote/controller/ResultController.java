@@ -40,7 +40,8 @@ public class ResultController {
 		if(topicList!=null && topicList.size()!=0){
 			for(Topic topic : topicList){
 				List<VoteResult> vrList = voteDAO.getVoteResultByTopicId(conferenceId, topic.getId());
-				tvrList.add(new TopicVotesResult(topic.getId(), topic.getTitle(), ListUtil.parseVoteResultList(vrList)));
+				int[] vResult = ListUtil.parseVoteResultList(vrList);
+				tvrList.add(new TopicVotesResult(topic.getId(), topic.getTitle(), vResult[0], vResult[1], vResult[2]));
 			}
 		}
 		HashMap<String, Object> mapModel = new HashMap<String, Object>();
@@ -49,6 +50,7 @@ public class ResultController {
 		
 		return new ModelAndView("votesResult", mapModel);
 	}
+	
 	
 	
 

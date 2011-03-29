@@ -8,16 +8,50 @@ public class TopicVotesResult {
 	
 	private String topicTitle;
 	
-	private List<VoteResult> vrList;
-
-	public TopicVotesResult(int topicId, String topicTitle, List<VoteResult> vrList) {
+	private int agreeCount;
+	
+	private int rejectCount;
+	
+	private int abstainCount;
+	
+	public TopicVotesResult(int topicId, String topicTitle, int agreeCount, int rejectCount, int abstainCount) {
 		this.topicId = topicId;
 		this.topicTitle = topicTitle;
-		this.vrList = vrList;
+		this.agreeCount = agreeCount;
+		this.rejectCount = rejectCount;
+		this.abstainCount = abstainCount;
 	}
 
 	public int getTopicId() {
 		return topicId;
+	}
+
+	public int getAgreeCount() {
+		return agreeCount;
+	}
+
+	public void setAgreeCount(int agreeCount) {
+		this.agreeCount = agreeCount;
+	}
+
+	public int getRejectCount() {
+		return rejectCount;
+	}
+
+	public void setRejectCount(int rejectCount) {
+		this.rejectCount = rejectCount;
+	}
+
+	public int getAbstainCount() {
+		return abstainCount;
+	}
+
+	public void setAbstainCount(int abstainCount) {
+		this.abstainCount = abstainCount;
+	}
+
+	public int getTotalCount() {
+		return agreeCount + rejectCount + abstainCount;
 	}
 
 	public void setTopicId(int topicId) {
@@ -30,14 +64,6 @@ public class TopicVotesResult {
 
 	public void setTopicTitle(String topicTitle) {
 		this.topicTitle = topicTitle;
-	}
-
-	public List<VoteResult> getVrList() {
-		return vrList;
-	}
-
-	public void setVrList(List<VoteResult> vrList) {
-		this.vrList = vrList;
 	}
 
 }

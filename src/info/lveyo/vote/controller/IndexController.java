@@ -26,13 +26,18 @@ public class IndexController {
 	
 	@RequestMapping("/")
 	public ModelAndView index(){
-		Conference activeConference = conferenceDAO.getActiveConference();
-		HashMap<String, Object> mapModel = new HashMap<String, Object>();
-		mapModel.put("conference", activeConference);
-		List<Topic> topicList = topicDAO.getTopicsByConferenceID(activeConference.getId());
-		mapModel.put("topicList", topicList);
-		mapModel.put("votesCount", topicList.size());
-		mapModel.put("topicIdStr", StringUtils.convertListToString(topicList, ","));
-		return new ModelAndView("index", mapModel);
+		try{
+			Conference activeConference = conferenceDAO.getActiveConference();
+			HashMap<String, Object> mapModel = new HashMap<String, Object>();
+			mapModel.put("conference", activeConference);
+			List<Topic> topicList = topicDAO.getTopicsByConferenceID(activeConference.getId());
+			mapModel.put("topicList", topicList);
+			mapModel.put("votesCount", topicList.size());
+			mapModel.put("topicIdStr", StringUtils.convertListToString(topicList, ","));
+			return new ModelAndView("index", mapModel);
+		}
+		catch(Exception ex){
+			return new ModelAndView("index");
+		}
 	}
 }

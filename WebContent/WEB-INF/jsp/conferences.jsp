@@ -44,7 +44,7 @@ $(function() {
 	<div>
 		<table border="0" cellpadding="0" width="600px" align="right">
 			<tr><td align="right">会议名称：</td><td><input type="text" name="newConferenceTitle" class="longInput" maxlength="64"/></td></tr>
-			<tr><td align="right">总票数：</td><td><input type="text" name="newConferenceTotalVotes" class="longInput"/></td></tr>
+			<tr><td align="right">投票人数：</td><td><input type="text" name="newConferenceTotalVotes" class="longInput"/></td></tr>
 		</table>
 		<div class="buttons"><input type="submit" value="提交"/></div>
 	</div>

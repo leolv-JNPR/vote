@@ -39,7 +39,7 @@ function getAllConferences() {
 					html += 'bgRed';
 				}
 				html +='">';
-				html +='<div class="con_title">' + icount+'. <a href="javascript:conference('+responseJSON[i].id+')">'+responseJSON[i].title + '</a>('+responseJSON[i].totalVotes+')</div>';
+				html +='<div class="con_title">' + icount+'. <a href="javascript:conference('+responseJSON[i].id+')">'+responseJSON[i].title + '</a>  (投票人数：'+responseJSON[i].totalVotes+')</div>';
 				
 				html +='<div class="clear"></div><div class="con_operate">';
 				if(responseJSON[i].active==0){

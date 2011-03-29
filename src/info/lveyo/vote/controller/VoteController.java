@@ -35,20 +35,26 @@ public class VoteController {
 		int conferenceId = ServletRequestUtils.getIntParameter(request, "conferenceId", 0);
 		int votesCount = ServletRequestUtils.getIntParameter(request, "votesCount", 0);
 		String topicIdStr = ServletRequestUtils.getStringParameter(request, "topicIdStr", "");
-		String[] topicIdArray = topicIdStr.split(",");
+		Conference conferenece = conferenceDAO.getConferenceByID(conferenceId);
 		HashMap<String, Object> mapModel = new HashMap<String, Object>();
-		mapModel.put("conId", conferenceId);
-		try {
-			if(topicIdArray.length==votesCount){
-				for(int i=0; i<votesCount; i++){
-					int voteValue = ServletRequestUtils.getIntParameter(request, "radio_"+conferenceId+"_"+topicIdArray[i], 3);
-					int res = voteDAO.vote(NetworkUtil.getRemoteAddr(request), conferenceId, Integer.parseInt(topicIdArray[i]), voteValue);
+		if(conferenece.getActive()==1){
+			String[] topicIdArray = topicIdStr.split(",");
+			mapModel.put("conId", conferenceId);
+			try {
+				if(topicIdArray.length==votesCount){
+					for(int i=0; i<votesCount; i++){
+						int voteValue = ServletRequestUtils.getIntParameter(request, "radio_"+conferenceId+"_"+topicIdArray[i], 3);
+						int res = voteDAO.vote(NetworkUtil.getRemoteAddr(request), conferenceId, Integer.parseInt(topicIdArray[i]), voteValue);
+					}
 				}
+				mapModel.put("result", 1);
+			} catch (Exception e) {
+				e.printStackTrace();
+				mapModel.put("result", 0);
 			}
-			mapModel.put("result", 1);
-		} catch (Exception e) {
-			e.printStackTrace();
-			mapModel.put("result", 0);
+		}
+		else{
+			mapModel.put("result", -1);
 		}
 		
 		return new ModelAndView("voteDone", mapModel);
@@ -59,22 +65,27 @@ public class VoteController {
 		int conferenceId = ServletRequestUtils.getIntParameter(request, "conferenceId", 0);
 		int votesCount = ServletRequestUtils.getIntParameter(request, "votesCount", 0);
 		String topicIdStr = ServletRequestUtils.getStringParameter(request, "topicIdStr", "");
-		String[] topicIdArray = topicIdStr.split(",");
 		HashMap<String, Object> mapModel = new HashMap<String, Object>();
+		Conference conferenece = conferenceDAO.getConferenceByID(conferenceId);
+		if(conferenece.getActive()==1){
+		String[] topicIdArray = topicIdStr.split(",");
 		mapModel.put("conId", conferenceId);
-		try {
-			if(topicIdArray.length==votesCount){
-				for(int i=0; i<votesCount; i++){
-					int voteValue = ServletRequestUtils.getIntParameter(request, "radio_"+conferenceId+"_"+topicIdArray[i], 3);
-					int res = voteDAO.updateVote(NetworkUtil.getRemoteAddr(request), conferenceId, Integer.parseInt(topicIdArray[i]), voteValue);
+			try {
+				if(topicIdArray.length==votesCount){
+					for(int i=0; i<votesCount; i++){
+						int voteValue = ServletRequestUtils.getIntParameter(request, "radio_"+conferenceId+"_"+topicIdArray[i], 3);
+						int res = voteDAO.updateVote(NetworkUtil.getRemoteAddr(request), conferenceId, Integer.parseInt(topicIdArray[i]), voteValue);
+					}
 				}
+				mapModel.put("result", 1);
+			} catch (Exception e) {
+				e.printStackTrace();
+				mapModel.put("result", 0);
 			}
-			mapModel.put("result", 1);
-		} catch (Exception e) {
-			e.printStackTrace();
-			mapModel.put("result", 0);
 		}
-		
+		else{
+			mapModel.put("result", -1);
+		}
 		return new ModelAndView("voteDone", mapModel);
 	}
 	

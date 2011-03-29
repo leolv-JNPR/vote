@@ -21,5 +21,5 @@ public interface ConferenceDAO {
 	public int beginConference(int conferenceId);
 	
 	public int endConference(int conferenceId);
-
+	
 }
